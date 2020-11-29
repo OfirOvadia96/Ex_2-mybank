@@ -14,11 +14,10 @@ while(c != 'E'){
 	case 'O' :
 		openAccount();
 		break;
-	
 	case 'B' :
 		printf("Account number? ");
 		x = scanf("%d" , &n);
-		if(x != 1 || n<900 || n>951){
+		if(x != 1 || n<901 || n>950){
 			printf("invalid number");
 		}
 		else{
@@ -29,7 +28,7 @@ while(c != 'E'){
 	case 'D' :
 		printf("Account number? ");
 		x = scanf("%d" , &n);
-		if(x != 1 || n<900 || n>951){
+		if(x != 1 || n<901 || n>950){
 			printf("invalid number\n");
 		}
 		else{
@@ -41,7 +40,7 @@ while(c != 'E'){
 
 		printf("Account number? ");
 		x = scanf("%d" , &n);
-		if(x != 1 || n<900 || n>951){
+		if(x != 1 || n<901 || n>950){
 			printf("invalid number\n");
 		}
 		else{
@@ -53,7 +52,7 @@ while(c != 'E'){
 
 		printf("Account number? ");
 		 x  = scanf("%d" , &n);
-		if(x !=1 || n<900 || n>951){
+		if(x !=1 || n<901 || n>950){
 			printf("invalid number\n");
 		}
 		else{

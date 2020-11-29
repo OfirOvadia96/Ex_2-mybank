@@ -1,24 +1,25 @@
-FLAGS = -Wall -g
 CC = gcc
+FLAGS = -Wall -g
 
-all: mains
-	
+
+all: mybanks mains
+
 main.o: main.c myBank.h
 	$(CC) $(FLAGS) -c main.c
-
+	
 myBank.o: myBank.c myBank.h
 	$(CC) $(FLAGS) -c myBank.c
-#create statc libary
+
 libmyBank.a: myBank.o myBank.h
-	ar -rcs libmyBank.a myBank.o main.o
-
-mybank: libmyBank.a
-
-mains: main.o libmyBank.a
-	$(CC) $(FLAGS) -o mains main.o libBank.a
+	ar -rcs libmyBank.a myBank.o
 	
+mybanks: libmyBank.a
 
-.PHONY: clean all
+mains: main.o mybanks 
+	$(CC) $(FLAGS) -o mains main.o libmyBank.a
+	
+	
+.PHONY: clean all mybanks
 
-clean:
+clean: 
 	rm -f *.o *.a mains

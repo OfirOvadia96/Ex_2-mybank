@@ -129,7 +129,7 @@ void interest(double n){
 void printBank(){
 for(int i=0; i<ACCOUNTS; i++){
 if(Bank[i][0] == OPEN){ //print only if the account is open
-printf("The amount in this account is: %d" , i+fixLocation);
+printf("The amount in account %d is: " , i+fixLocation);
 printf("%0.2lf \n" , Bank[i][1]);
  	}
    }
