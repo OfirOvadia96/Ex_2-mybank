@@ -20,10 +20,10 @@ int availability = -1;
  }
  else{
  	double number = 0;
-	printf("Initial deposite? ");
+	printf("Please enter amount for deposit: ");
 	scanf( "%lf" , &number);
 	if(number <=0){
-	printf("Invalid number");
+	printf("Failed to read the amount");
 	return;
 	}
 	else{
@@ -32,17 +32,19 @@ int availability = -1;
 	number = (double)number/100;
 	Bank[availability][0] = OPEN;
 	Bank[availability][1] = number;
+	int numberAccount = availability+fixLocation;
+	printf("New account number is: %d \n" , numberAccount);
 	}
    }	
 }
 
 void balance(int numberAccount){
 if(Bank[numberAccount-fixLocation][0] == CLOSE){
-	printf("The account is close ");	
+	printf("This account is closed");	
   }
 else{
 	double money = Bank[numberAccount-fixLocation][1];
-	printf("The balance in this account is:  %0.2lf \n" , money);
+	printf("The balance of account number %d is: %0.2lf \n" , numberAccount , money);
   }
 }
 
@@ -80,7 +82,7 @@ printf("This account is close");
 }
 else{
 	double amount = 0;
-	printf("Amount?");
+	printf("Please enter the amount to withdraw: ");
 	scanf("%lf" , &amount);
 	if(amount < 0){
 	printf("Invalid number!");
@@ -92,7 +94,7 @@ else{
 	amount = (double)amount/100;
 	}
 	if(amount > Bank[numberAccount-fixLocation][1]){
-	printf("There is not enough money");
+	printf("Cannot withdraw more than the balance");
   	}
   	else{
   	Bank[numberAccount-fixLocation][1] = Bank[numberAccount-fixLocation][1] - amount;
@@ -115,6 +117,10 @@ else if(Bank[numberAccount-fixLocation][0] ==CLOSE){
 }
 
 void interest(double n){
+ if(n < 1 || n > 100 ){
+	printf("Failed to read the interest rate");
+ }
+ else{
  n = n/100;
  for(int i=0; i<ACCOUNTS; i++){
  	if(Bank[i][0] ==OPEN){
@@ -122,6 +128,7 @@ void interest(double n){
   	Bank[i][1] = Bank[i][1]*100;
   	Bank[i][1] = (int)Bank[i][1];
   	Bank[i][1] = (double)Bank[i][1]/100;
+  			}
   		}
  	}
 }

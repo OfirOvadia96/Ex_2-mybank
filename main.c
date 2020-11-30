@@ -4,7 +4,15 @@ int main(){
 char c = ' '; // the operetion we need to get from the user
 
 while(c != 'E'){
-	printf("\nTransation Type? ");
+	printf("\nPlease choose a transaction type: ");
+	printf("\n O-Open Account");
+	printf("\n B-Balance Inquiry");
+	printf("\n D-Deposit");
+	printf("\n W-Withdrawal");
+	printf("\n C-Close Account");
+	printf("\n I-Interest");
+	printf("\n P-Print");
+	printf("\n E-Exit\n");
 	scanf(" %c" , &c);
 
 	switch(c){
@@ -15,10 +23,10 @@ while(c != 'E'){
 		openAccount();
 		break;
 	case 'B' :
-		printf("Account number? ");
+		printf("Please enter account number: ");
 		x = scanf("%d" , &n);
 		if(x != 1 || n<901 || n>950){
-			printf("invalid number");
+			printf("Failed to read the account number");
 		}
 		else{
 			balance(n);
@@ -26,10 +34,10 @@ while(c != 'E'){
 		break;
 		
 	case 'D' :
-		printf("Account number? ");
+		printf("Please enter account number: ");
 		x = scanf("%d" , &n);
 		if(x != 1 || n<901 || n>950){
-			printf("invalid number\n");
+			printf("Failed to read the account number\n");
 		}
 		else{
 			deposite(n);
@@ -38,10 +46,10 @@ while(c != 'E'){
 	
 	case 'W' :
 
-		printf("Account number? ");
+		printf("Please enter account number: ");
 		x = scanf("%d" , &n);
 		if(x != 1 || n<901 || n>950){
-			printf("invalid number\n");
+			printf("Failed to read the account number\n");
 		}
 		else{
 			withdrawal(n);
@@ -50,7 +58,7 @@ while(c != 'E'){
 		
 	case 'C' :
 
-		printf("Account number? ");
+		printf("Please enter account number: ");
 		 x  = scanf("%d" , &n);
 		if(x !=1 || n<901 || n>950){
 			printf("invalid number\n");
@@ -61,7 +69,7 @@ while(c != 'E'){
 		break;
 	
 	case 'I' :
-		printf("Interest rate? ");
+		printf("Please enter interest rate: ");
 		scanf("%lf" , &i);
 		interest(i);
 		break;
@@ -75,7 +83,7 @@ while(c != 'E'){
 		break;
 		
 	default :
-		printf("error! the operator is not correct");
+		printf("Invalid transaction type");
 	}
 }
 return 0;
