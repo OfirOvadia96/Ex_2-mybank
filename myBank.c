@@ -57,7 +57,7 @@ printf("This account is close");
  }
  else{
 double sum = 0;
-printf("Amount?");
+printf("Please enter amount for deposit: ");
 scanf("%lf" , &sum);
 if(sum < 0){
 printf("Invalid number!");
@@ -78,7 +78,7 @@ if(numberAccount > 950 || numberAccount < 901){
 printf("Invalid number");
 }
 else if(Bank[numberAccount-fixLocation][0] == CLOSE){
-printf("This account is close");
+printf("This account is closed");
 }
 else{
 	double amount = 0;
@@ -108,7 +108,7 @@ if(numberAccount < 901 || numberAccount > 950){
 printf("Invalid number");
 }
 else if(Bank[numberAccount-fixLocation][0] ==CLOSE){
- printf("This account is already close");
+ printf("This account is already closed");
  }
  else{ //Reset the location in the array that represents the account
  	Bank[numberAccount-fixLocation][1] =0;
